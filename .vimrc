@@ -16,7 +16,6 @@ set ignorecase
 set smartcase
 set hlsearch
 
-noremap <C-d> <
 noremap <S-h> ^
 noremap <S-l> $
 
