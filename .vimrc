@@ -35,6 +35,19 @@ nnoremap <silent><C-e> :NERDTreeToggle<CR>
 " caw.vim
 nmap <Space><Space> <Plug>(caw:hatpos:toggle)
 vmap <Space><Space> <Plug>(caw:hatpos:toggle)
+" clang-format
+function! CPPCodeCleanup()
+  " echo "Cleanup cpp code"
+  let l:lines="all"
+  let g:clang_format_fallback_style = 'Google'
+  :pyf /usr/local/share/clang/clang-format.py
+endfunction
+command! CPPCodeCleanup call CPPCodeCleanup()
+
+autocmd BufWrite *.{cpp} :CPPCodeCleanup
+autocmd BufWrite *.{hpp} :CPPCodeCleanup
+autocmd BufWrite *.{c} :CPPCodeCleanup
+autocmd BufWrite *.{h} :CPPCodeCleanup
 
 
 if &term =~ "xterm"
@@ -78,6 +91,8 @@ if dein#load_state('/Users/yuigoto/.cache/dein')
 	call dein#add('Shougo/neocomplete.vim')
 	call dein#add('scrooloose/nerdtree')
   call dein#add('tyru/caw.vim.git')
+	call dein#add('rhysd/vim-clang-format')
+	call dein#add('kana/vim-operator-user')
   " Required:
   call dein#end()
   call dein#save_state()
