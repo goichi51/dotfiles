@@ -4,18 +4,18 @@
 if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
-
-source ~/.git-completion.bash
-
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 # export SYSTEMD_PAGER=
 
 # User specific aliases and functions
+source /usr/local/etc/bash_completion.d/git-prompt.sh
+source /usr/local/etc/bash_completion.d/git-completion.bash
+GIT_PS1_SHOWDIRTYSTATE=true
 
 if [ $UID -eq 0 ]; then
-    PS1="\[\033[31m\]\u@\h\[\033[00m\]:\[\033[01m\]\w\[\033[00m\]\\$ "
+	export PS1='\[\033[31m\]\u:\[\033[37m\]\w\[\033[31m\]$(__git_ps1)\[\033[0m\]\$ '
 else
-    PS1="\[\033[36m\]\u@\h\[\033[00m\]:\[\033[01m\]\w\[\033[00m\]\\$ "
+	export PS1='\[\033[36m\]\u:\[\033[37m\]\w\[\033[31m\]$(__git_ps1)\[\033[0m\]\$ '
 fi
 # "-F":ディレクトリに"/"を表示 / "-G"でディレクトリを色表示
 alias ls='ls -FG'

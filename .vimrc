@@ -6,6 +6,7 @@ set autoindent
 set smartindent
 set shiftwidth=2
 "set cursorline
+set backspace=indent,eol,start
 
 set wildmenu
 set history=1000
@@ -36,19 +37,18 @@ nnoremap <silent><C-e> :NERDTreeToggle<CR>
 nmap <Space><Space> <Plug>(caw:hatpos:toggle)
 vmap <Space><Space> <Plug>(caw:hatpos:toggle)
 " clang-format
-function! CPPCodeCleanup()
-  " echo "Cleanup cpp code"
-  let l:lines="all"
-  let g:clang_format_fallback_style = 'Google'
-  :pyf /usr/local/share/clang/clang-format.py
-endfunction
-command! CPPCodeCleanup call CPPCodeCleanup()
-
-autocmd BufWrite *.{cpp} :CPPCodeCleanup
-autocmd BufWrite *.{hpp} :CPPCodeCleanup
-autocmd BufWrite *.{c} :CPPCodeCleanup
-autocmd BufWrite *.{h} :CPPCodeCleanup
-
+" function! CPPCodeCleanup()
+"   let l:lines="all"
+"   let g:clang_format_fallback_style = 'Google'
+"   :pyf /usr/local/share/clang/clang-format.py
+" endfunction
+" command! CPPCodeCleanup call CPPCodeCleanup()
+"
+" autocmd BufWrite *.{cpp} :CPPCodeCleanup
+" autocmd BufWrite *.{hpp} :CPPCodeCleanup
+" autocmd BufWrite *.{c} :CPPCodeCleanup
+" autocmd BufWrite *.{h} :CPPCodeCleanup
+"
 
 if &term =~ "xterm"
     let &t_SI .= "\e[?2004h"
@@ -93,6 +93,8 @@ if dein#load_state('/Users/yuigoto/.cache/dein')
   call dein#add('tyru/caw.vim.git')
 	call dein#add('rhysd/vim-clang-format')
 	call dein#add('kana/vim-operator-user')
+	call dein#add('Townk/vim-autoclose')
+	
   " Required:
   call dein#end()
   call dein#save_state()
