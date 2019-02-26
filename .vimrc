@@ -37,7 +37,8 @@ nnoremap <silent><C-e> :NERDTreeToggle<CR>
 nmap <Space><Space> <Plug>(caw:hatpos:toggle)
 vmap <Space><Space> <Plug>(caw:hatpos:toggle)
 " clang-format
-autocmd FileType c,cpp,objc nmap <C-f> <Plug>(operator-clang-format)
+autocmd FileType c,cpp,objc ClangFormatAutoEnable
+
 " 'Shougo/neocomplete.vim' {{{
 let g:neocomplete#enable_at_startup = 1
 
@@ -128,7 +129,7 @@ if dein#load_state('/Users/yuigoto/.cache/dein')
   call dein#add('tyru/caw.vim.git')
 	call dein#add('rhysd/vim-clang-format')
 	call dein#add('kana/vim-operator-user')
-	call dein#add('Townk/vim-autoclose')
+	call dein#add('cohama/lexima.vim')
   " Required:
   call dein#end()
   call dein#save_state()
