@@ -98,6 +98,15 @@ let g:clang_c_options = '-std=c11'
 let g:clang_cpp_options = '-std=c++11 -stdlib=libc++'
 
 " }}}
+" teramoko/jscomplete-vim
+" myhere/vim-nodejs-complete
+autocmd FileType javascript setlocal omnifunc=nodejscomplete#CompleteJS
+if !exists('g:neocomplcache_omni_functions')
+  let g:neocomplcache_omni_functions = {}
+endif
+let g:neocomplcache_omni_functions.javascript = 'nodejscomplete#CompleteJS'
+
+let g:node_usejscomplete = 1
 
 "dein Scripts-----------------------------
 if &compatible
@@ -129,7 +138,10 @@ if dein#load_state('/Users/yuigoto/.cache/dein')
   call dein#add('tyru/caw.vim.git')
 	call dein#add('rhysd/vim-clang-format')
 	call dein#add('kana/vim-operator-user')
-	call dein#add('cohama/lexima.vim')
+	call dein#add('cohama/vim-insert-linenr')
+	call dein#add('myhere/vim-nodejs-complete')
+	call dein#add('fatih/vim-go')
+	" call dein#add('cohama/lexima.vim')
   " Required:
   call dein#end()
   call dein#save_state()
