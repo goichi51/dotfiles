@@ -1,10 +1,10 @@
 set title
 set number
-set tabstop=2
-set softtabstop=2
+set tabstop=1
+set softtabstop=1
 set autoindent
 set smartindent
-set shiftwidth=2
+set shiftwidth=1
 "set cursorline
 set backspace=indent,eol,start
 
@@ -31,6 +31,7 @@ inoremap <C-k> <up>
 inoremap <C-h> <left>
 inoremap <C-l> <right>
 inoremap <silent>jj <ESC>
+
 "nerdTree
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
 " caw
@@ -53,6 +54,7 @@ let g:neocomplete#force_omni_input_patterns.cpp =
 
 " }}}
 "
+
 " 'justmao945/vim-clang' {{{
 
 " disable auto completion for vim-clang
@@ -108,6 +110,7 @@ let g:neocomplcache_omni_functions.javascript = 'nodejscomplete#CompleteJS'
 
 let g:node_usejscomplete = 1
 
+
 "dein Scripts-----------------------------
 if &compatible
   set nocompatible               " Be iMproved
@@ -125,10 +128,10 @@ if dein#load_state('/Users/yuigoto/.cache/dein')
   call dein#add('/Users/yuigoto/.cache/dein/repos/github.com/Shougo/dein.vim')
 
   " Add or remove your plugins here:
-  call dein#add('Shougo/neosnippet.vim')
+	call dein#add('Shougo/neosnippet.vim')
   call dein#add('Shougo/neosnippet-snippets')
 	call dein#add('rdavison/libertine')
-	call dein#add('scrooloose/syntastic')
+	" call dein#add('scrooloose/syntastic')
 	call dein#add('majutsushi/tagbar')
 	call dein#add('szw/vim-tags')
 	call dein#add('Yggdroot/indentLine')
@@ -140,7 +143,6 @@ if dein#load_state('/Users/yuigoto/.cache/dein')
 	call dein#add('kana/vim-operator-user')
 	call dein#add('cohama/vim-insert-linenr')
 	call dein#add('myhere/vim-nodejs-complete')
-	call dein#add('fatih/vim-go')
 	" call dein#add('cohama/lexima.vim')
   " Required:
   call dein#end()
@@ -148,7 +150,6 @@ if dein#load_state('/Users/yuigoto/.cache/dein')
 endif
 
 " Required:
-"colorscheme Apprentice
 colorscheme libertine
 "set t_Co=256
 filetype plugin indent on
